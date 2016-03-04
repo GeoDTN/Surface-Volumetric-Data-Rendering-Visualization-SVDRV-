@@ -1,0 +1,548 @@
+/*
+* Bunny.cpp
+*
+* Created on: 27/Feb/2013
+* Author: Tadewos Somano
+*/
+#include "Animal.h"
+#include "Bunny.h"
+#include "Lynx.h"
+#include "MutantBunny.h"
+#include <string>
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <stdio.h>
+string nameMale[5]={"bob","paul","joseph","silvio","oscar"};
+string nameFemale[5]={"betty","rose","angela","rita","paola"};
+Bunny::Bunny( int a_x, int a_y,int a_id): Animal( a_x, a_y) {
+// TODO Auto-generated constructor stub
+id =a_id; // set id
+sex = rand()%2; // set random sex, and then the name and the mark
+if (sex==0) {
+name = nameMale[rand()%5];
+mark = 'm';
+} if (
+sex==1) {
+name = nameFemale[rand()%5];
+mark = 'f';
+} age =
+1;
+}
+Bunny::~Bunny() {
+// TODO Auto-generated destructor stub
+}
+void Bunny::move(char forest[][20])
+{
+int last_x = location.x; // remember the initial location
+int last_y = location.y;
+do{
+location.x = last_x; // if the position is occupied, or is out of
+the forest, reset the value of the position
+location.y = last_y;
+int move_x = rand()%3; // rand movement x
+move_x--; // range movement is now -1 to +1
+int move_y = rand()%3; // rand movement x
+move_y--; // range movement is now -1 to +1
+location.x += move_x; // set the new position
+location.y += move_y;
+while (location.x<0 ) // check if the position is
+inside the forest
+location.x++;
+while (location.y<0 )
+location.y++;
+while (location.x>19 )
+location.x--;
+while (location.y>19 )
+location.y--;
+}
+while (forest[location.x][location.y] != '.'); //check if that position in
+the forest is free
+if (age > 2) // check the age and the mark
+{ if (sex == 0)
+mark = 'M';
+else
+mark = 'F';
+}
+age++; // increase the age
+forest[location.x][location.y]= mark; // put the mark in the new position
+of the forest
+forest[last_x][last_y]= '.'; // restore the previous position in
+the forest with the default mark '.'
+};
+void Bunny::describe(){
+cout<<"bunny born"<<"ID: "<<id<<" Name: "<<name<<" sex: "<<mark<<" Color:
+"<<color<<" Type: normal"<<" Position: ("<<location.x<<","<<location.y<<")"<<endl;
+return;
+}
+/////
+/*
+* Bunny.h
+*
+* Created on: 27/Feb/2013
+* Author: Tadewos Somano 
+*University of Brescia,Brescia ,Italy
+*/
+#ifndef BUNNY_H_
+#define BUNNY_H_
+using namespace std;
+#include "Animal.h"
+#include <string>
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <stdio.h>
+class Bunny: public Animal {
+public:
+char sex;
+int age;
+public:
+Bunny(int a_x, int a_y,int a_id);
+virtual ~Bunny();
+void move(char forest[][20]);
+void describe();
+};
+#endif /* BUNNY_H_ */
+//
+#include "Animal.h"
+#include "Bunny.h"
+#include "Lynx.h"
+#include "MutantBunny.h"
+#include <string>
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <stdio.h>
+void initialization();
+void forest_init();
+void move_bunny();
+void move_lynx();
+void move_mutant();
+void create_new_bunny();
+void eat_bunny();
+void bunny_die();
+void kill_bunny();
+using namespace std ;
+//
+#include "Animal.h"
+#include "Bunny.h"
+#include "Lynx.h"
+#include "MutantBunny.h"
+#include <string>
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <stdio.h>
+Lynx::Lynx( int a_x, int a_y,string l_name, int l_id): Animal( a_x, a_y) {
+// TODO Auto-generated constructor stub
+mark = 'L';
+name = l_name;
+id = l_id;
+}
+Lynx::~Lynx() {
+// TODO Auto-generated destructor stub
+}
+void Lynx::move_l(char forest[][20]) // see the comment of the function 'move' of
+the bunny
+{
+int last_x = location.x;
+int last_y = location.y;
+do{
+location.x = last_x;
+location.y = last_y;
+int move_x = rand()%3;
+move_x--;
+int move_y = rand()%3;
+move_y--;
+location.x += move_x;
+location.y += move_y;
+while (location.x<0 )
+location.x++;
+while (location.y<0 )
+location.y++;
+while (location.x>19 )
+location.x--;
+while (location.y>19 )
+location.y--;
+}
+while (forest[location.x][location.y] != '.');
+forest[location.x][location.y]= mark;
+forest[last_x][last_y]= '.';
+};
+void Lynx::describe(){
+cout<<"ID: "<<id<<" Name: "<<name<<" Mark: "<<mark<<" Color: "<<color<<" Position:
+"<<location.x<<","<<location.y<<endl;
+return;
+}
+void Lynx::eat_bunny(vector<Bunny*>* punt,char forest[][20])
+{
+for (int i=0; i<punt->size(); i++) // skim bunnies vector
+{
+if(abs(location.x-punt->at(i)->location.x)<=1 && abs(location.y-punt->at(i)-
+>location.y)<=1){ // check if the bunny is near the lynx
+cout<<"Bunny eaten:"<<punt->at(i)->id<<" by lynx: "<< id<<endl;
+forest[punt->at(i)->location.x][punt->at(i)->location.y] = '.'; //
+reset the forest with char '.'
+punt->erase(punt->begin()+i); // cancel the bunny
+return;
+}
+}
+} void Lynx::eat_Mbunny(vector<Mutant_Bunny*>* punt,char forest[][20])
+{
+for (int i=0; i<punt->size(); i++)
+{
+int c = rand()%2; // the same procedure with the random factor of 50%
+if (c==0){
+if(abs(location.x-punt->at(i)->location.x)<=1 && abs(location.y-punt->at(i)-
+>location.y)<=1){
+cout<<"Mutant Bunny eaten:"<<punt->at(i)->id<<" by lynx: "<< id<<endl;
+forest[punt->at(i)->location.x][punt->at(i)->location.y] = '.';
+punt->erase(punt->begin()+i);
+}
+}}
+}
+///
+/*
+* Lynx.h
+* Created on: 27/Feb/2013
+* Author: Tadewos Somano 
+*University of Brescia,Brescia ,Italy
+*/
+#ifndef LYNX_H_
+#define LYNX_H_
+#include "Animal.h"
+#include "Bunny.h"
+#include "MutantBunny.h"
+#include <string>
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <stdio.h>
+class Lynx: public Animal {
+public:
+Lynx(int a_x, int a_y, string l_name, int l_id);
+virtual ~Lynx();
+void move_l(char forest[][20]);
+void describe();
+void eat_bunny(vector<Bunny*>* punt_pop,char forest[][20]);
+void eat_Mbunny(vector<Mutant_Bunny*>* punt_pop,char forest[][20]);
+};
+#endif /* LYNX_H_ */
+///
+#include "header.h";
+using namespace std ;
+int ROW=10;
+int COL=20;
+char forest[10][20]; // 'forest' array initialization
+vector <Bunny*> bunnies;
+vector <Lynx*> lynxes; // animals vector initialization
+vector <Mutant_Bunny*> mutant;
+int main () {
+forest_init(); //filling the 'forest' with char '.'
+initialization(); // creating 10 bunny and 2 lynxes
+int t=1; // variable that define the number of turn
+for (;;)
+{
+cout << "##### Turn "<<t<< "-Initial situation####"<<endl;
+cout << "####################"<<endl;
+for (int i = 0; i < 10; i++) //print the forest
+{
+for (int j = 0; j < 20; j++)
+cout << forest[i][j];
+cout<< endl;
+} cout << "####################"<<endl;
+move_bunny();
+move_lynx();
+move_mutant();
+create_new_bunny();
+bunny_die(); // check that the
+bunnies have >10 years, then kill
+cout << "##### Turn"<<t<< "-After moving and births
+####"<<endl;
+cout << "####################"<<endl;
+for (int i = 0; i < 10; i++)
+{
+for (int j = 0; j < 20; j++)
+cout << forest[i][j];
+cout<< endl;
+}
+cout << "####################"<<endl;
+eat_bunny();
+kill_bunny(); // check
+that the number of bunnies don't exceeds a certain size
+cout << "##### Turn"<<t<< "-After eating ####"<<endl;
+cout << "#####################"<<endl;
+for (int i = 0; i < 10; i++)
+{
+for (int j = 0; j < 20; j++)
+cout << forest[i][j];
+cout<< endl;
+}
+cout << "####################"<<endl;
+t++; // increase the number
+of turn
+cout<< ""<<endl;
+cout<<"press 'Enter' for next turn, press 'q' and 'Enter' to Quit"<<
+endl;
+cout<< ""<<endl;
+char c = getchar();
+if (c =='q' || (bunnies.size()+mutant.size())==0){ // if input is
+char 'q' or all bunnies were killed conclude the program
+cout<<"bye bye!"<<endl;
+break;
+}
+}
+return 0;
+}
+void create_new_bunny()
+{
+int rx,ry;
+int mark_f = 0;
+int mark_m = 0;
+for (int i=0; i< bunnies.size(); i++)
+{
+if(bunnies.at(i)->mark == 'M') // check the number of adults
+bunnies M and F
+mark_m++;
+if(bunnies.at(i)->mark == 'F')
+mark_f++;
+}
+if (mark_m > 0 && mark_f >0)
+{
+for (int i=0; i< bunnies.size(); i++) // this cycle allows to create 1
+new bunny for each Female Bunny
+{
+if(bunnies.at(i)->mark == 'F')
+{
+int casual = rand()%4; // create mutant bunny with
+probability of 25%
+if (casual == 0)
+{
+int rx,ry;
+Mutant_Bunny* oneM;
+do {
+rx=rand()%ROW;
+ry=rand()%COL;
+} while(forest[rx][ry]!='.'); // check
+for free position in the forest
+int id = bunnies.size()+mutant.size(); //
+sequential id
+oneM = new Mutant_Bunny(rx,ry,id);
+oneM->describeM(); // print
+the birth event
+forest[rx][ry]=oneM->mark;
+oneM->color = bunnies.at(i)->color; // same
+color as his mother
+mutant.push_back(oneM);
+} else // create new
+normal bunny
+{
+int rx,ry;
+Bunny* oneB;
+do {
+rx=rand()%ROW;
+ry=rand()%COL;
+} while(forest[rx][ry]!='.');
+int id = bunnies.size()+mutant.size();
+oneB = new Bunny(rx,ry,id);
+forest[rx][ry]=oneB->mark;
+oneB->color = bunnies.at(i)->color;
+oneB->describe();
+bunnies.push_back(oneB);
+}
+}}}}
+void initialization() // create 10 bunnies and 2 lynxes
+{
+int rx,ry;
+// 10 bunny creation
+for (int i=0; i<10; i++)
+{
+Bunny* oneB;
+//check that position [rx][ry] is free
+do {
+rx=rand()%ROW;
+ry=rand()%COL;
+} while(forest[rx][ry]!='.');
+int id = bunnies.size();
+oneB = new Bunny(rx,ry,id);
+forest[rx][ry]=oneB->mark;
+bunnies.push_back(oneB);
+}
+for (int i=0; i<2; i++)
+{ // 2 Lynx creation
+Lynx* oneL;
+do {
+rx=rand()%ROW;
+ry=rand()%COL;
+} while(forest[rx][ry]!='.');
+if (i==0)
+{
+oneL = new Lynx(rx,ry, "hitler",0);
+forest[rx][ry]=oneL->mark;
+lynxes.push_back(oneL);
+} if (
+i==1)
+{
+oneL = new Lynx(rx,ry, "stalin",1);
+forest[rx][ry]=oneL->mark;
+lynxes.push_back(oneL);
+}}
+}
+void forest_init()
+{
+for(int i =0; i < 10; i++) // forest initialization
+for(int j =0; j < 20; j++)
+forest[i][j]='.';
+}
+void move_bunny()
+{
+for (int i=0; i< bunnies.size(); i++) // for each bunny in the forest,
+call the function 'move'
+bunnies.at(i)->move(forest); // 'move' also allows to increase
+the age and change the mark
+} void move_lynx()
+{
+lynxes.at(0)->move_l(forest);
+lynxes.at(1)->move_l(forest);
+} void move_mutant()
+{
+for (int i=0; i< mutant.size(); i++) // for each mutant bunny in the
+forest, call the function 'move'
+mutant.at(i)->move(forest); // 'move' also allows to increase
+the age and change the mark
+} void eat_bunny()
+{
+for (int i=0; i< lynxes.size(); i++) // for each lynx, call the function
+'eat'
+{
+lynxes.at(i)->eat_bunny( &bunnies,forest);
+lynxes.at(i)->eat_Mbunny(&mutant,forest);
+}
+}
+void bunny_die() // if the bunny has an age greater or equal than 10,
+will die
+{
+for (int i=0; i< bunnies.size(); i++)
+{
+if (bunnies.at(i)->age >9){
+forest[bunnies.at(i)->location.x][bunnies.at(i)->location.y] =
+'.'; // then the forest is cleared
+cout<< "bunny died id: "<<bunnies.at(i)->id<<endl;
+// print death event
+bunnies.erase(bunnies.begin()+i);
+}
+} for (
+int i=0; i< mutant.size(); i++)
+{
+if (mutant.at(i)->age > 9){
+forest[mutant.at(i)->location.x][mutant.at(i)->location.y]
+= '.';
+mutant.erase(mutant.begin()+i);}
+}
+}
+void kill_bunny()
+{
+if((bunnies.size())>35){
+for (int i=0; i<18; i++) //if there are 35 or more bunnies, half of
+bunnies die
+{
+int a=rand()%bunnies.size();
+forest[bunnies.at(a)->location.x][bunnies.at(a)-
+>location.y] = '.';
+bunnies.erase(bunnies.begin()+a);
+} cout<<"Half of normal bunnies just Killed"<<endl;}
+if((mutant.size()>10)){ //if there are 10 or more mutant bunnies, half
+of mutant bunnies die
+for (int i=0; i<5; i++){
+int a=rand()%mutant.size();
+forest[mutant.at(a)->location.x][mutant.at(a)->location.y] = '.';
+mutant.erase(mutant.begin()+a);
+}cout<<"Half of mutant bunnies just Killed"<<endl;
+}
+}
+
+///
+/*
+* MutantBunny.cpp
+* Created on: 27/Feb/2013
+* Author: Tadewos Somano 
+*University of Brescia,Brescia ,Italy
+*/
+#include "header.h"
+Mutant_Bunny::Mutant_Bunny( int a_x, int a_y, int a_id): Bunny( a_x, a_y, a_id) {
+// TODO Auto-generated constructor stub
+string nameMale[5]={"bob","paul","joseph","silvio","oscar"};
+string nameFemale[5]={"betty","rose","angela","rita","paola"};
+id = a_id;
+sex = rand()%2;
+if (sex==0) {
+name = nameMale[rand()%5];
+mark = 'W'; // mark 'W' for the mutant bunnies
+} if (
+sex==1) {
+name = nameFemale[rand()%5];
+mark = 'W';
+} age =
+1;
+}
+Mutant_Bunny::~Mutant_Bunny() {
+// TODO Auto-generated destructor stub
+} void Mutant_Bunny::move(char forest[][20]){ // see the comment of the function
+'move' of the bunny
+int last_x = location.x;
+int last_y = location.y;
+do{
+location.x =last_x;
+location.y = last_y;
+int move_x = rand()%5;
+move_x -=2; // range movement is now -2 to +2
+int move_y = rand()%5;
+move_y -=2; // range movement is now -2 to +2
+location.x += move_x;
+location.y += move_y;
+while (location.x<0 )
+location.x++;
+while (location.y<0 )
+location.y++;
+while (location.x>19 )
+location.x--;
+while (location.y>19 )
+location.y--;
+}
+while (forest[location.x][location.y]!='.');
+age++;
+forest[location.x][location.y]= mark;
+forest[last_x][last_y]= '.';
+};
+void Mutant_Bunny::describeM(){
+cout<<"bunny born"<<"ID: "<<id<<" Name: "<<name<<" Color: "<<color<<" Type:
+mutant"<<" Position: ("<<location.x<<","<<location.y<<")"<<endl;
+return;
+}
+/*
+* MutantBunny.h
+* Created on: 27/Feb/2013
+* Author: Tadewos Somano 
+*University of Brescia,Brescia ,Italy
+*/
+#ifndef MUTANTBUNNY_H_
+#define MUTANTBUNNY_H_
+#include "Animal.h"
+#include "Bunny.h"
+#include "Lynx.h"
+#include <string>
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <stdio.h>
+class Mutant_Bunny: public Bunny {
+public:
+char sex;
+int age;
+Mutant_Bunny(int a_x, int a_y, int a_id);
+virtual ~Mutant_Bunny();
+void move(char forest[][20]);
+void describeM();
+///// other function
+};
+#endif /* MUTANTBUNNY_H_ */
