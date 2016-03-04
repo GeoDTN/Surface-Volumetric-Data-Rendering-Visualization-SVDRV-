@@ -1,0 +1,534 @@
+Assignment2
+/********************************************************************************
+** Form generated from reading UI file 'mainwindow.ui'
+**
+** Created: Tue Mar 26 09:57:11 2013
+** by: Qt User Interface Compiler version 4.8.3
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
+#ifndef UI_MAINWINDOW_H
+#define UI_MAINWINDOW_H
+#include <QtCore/QVariant>
+#include <QtGui/QAction>
+#include <QtGui/QApplication>
+#include <QtGui/QButtonGroup>
+#include <QtGui/QCalendarWidget>
+#include <QtGui/QHBoxLayout>
+#include <QtGui/QHeaderView>
+#include <QtGui/QLCDNumber>
+#include <QtGui/QLabel>
+#include <QtGui/QMainWindow>
+#include <QtGui/QMenuBar>
+#include <QtGui/QPushButton>
+#include <QtGui/QRadioButton>
+#include <QtGui/QSlider>
+#include <QtGui/QStatusBar>
+#include <QtGui/QTextBrowser>
+#include <QtGui/QToolBar>
+#include <QtGui/QWidget>
+QT_BEGIN_NAMESPACE
+class Ui_MainWindow
+{ public:
+QWidget *centralWidget;
+QCalendarWidget *calendar;
+QPushButton *quit;
+QLCDNumber *clock;
+QRadioButton *current;
+QRadioButton *define;
+QSlider *select_h;
+QTextBrowser *sun;
+QTextBrowser *text;
+QWidget *widget;
+QHBoxLayout *horizontalLayout;
+QLabel *label;
+QLabel *label_2;
+QLabel *label_3;
+QMenuBar *menuBar;
+QToolBar *mainToolBar;
+QStatusBar *statusBar;
+void setupUi(QMainWindow *MainWindow)
+{
+if (MainWindow->objectName().isEmpty())
+MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+MainWindow->resize(785, 423);
+centralWidget = new QWidget(MainWindow);
+centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+calendar = new QCalendarWidget(centralWidget);
+calendar->setObjectName(QString::fromUtf8("calendar"));
+calendar->setGeometry(QRect(10, 10, 448, 172));
+quit = new QPushButton(centralWidget);
+quit->setObjectName(QString::fromUtf8("quit"));
+quit->setGeometry(QRect(670, 320, 98, 27));
+clock = new QLCDNumber(centralWidget);
+clock->setObjectName(QString::fromUtf8("clock"));
+clock->setGeometry(QRect(480, 60, 151, 41));
+current = new QRadioButton(centralWidget);
+current->setObjectName(QString::fromUtf8("current"));
+current->setGeometry(QRect(670, 40, 116, 22));
+define = new QRadioButton(centralWidget);
+define->setObjectName(QString::fromUtf8("define"));
+define->setGeometry(QRect(670, 80, 116, 22));
+select_h = new QSlider(centralWidget);
+select_h->setObjectName(QString::fromUtf8("select_h"));
+select_h->setGeometry(QRect(500, 160, 201, 29));
+select_h->setMinimumSize(QSize(181, 29));
+QFont font;
+font.setBold(true);
+font.setItalic(true);
+font.setWeight(75);
+select_h->setFont(font);
+select_h->setCursor(QCursor(Qt::ClosedHandCursor));
+select_h->setMinimum(0);
+select_h->setMaximum(1440);
+select_h->setOrientation(Qt::Horizontal);
+select_h->setTickPosition(QSlider::NoTicks);
+select_h->setTickInterval(0);
+sun = new QTextBrowser(centralWidget);
+sun->setObjectName(QString::fromUtf8("sun"));
+sun->setGeometry(QRect(10, 190, 160, 160));
+text = new QTextBrowser(centralWidget);
+text->setObjectName(QString::fromUtf8("text"));
+text->setGeometry(QRect(190, 200, 341, 131));
+widget = new QWidget(centralWidget);
+widget->setObjectName(QString::fromUtf8("widget"));
+widget->setGeometry(QRect(490, 140, 271, 20));
+horizontalLayout = new QHBoxLayout(widget);
+horizontalLayout->setSpacing(6);
+horizontalLayout->setContentsMargins(11, 11, 11, 11);
+horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+horizontalLayout->setContentsMargins(0, 0, 0, 0);
+label = new QLabel(widget);
+label->setObjectName(QString::fromUtf8("label"));
+horizontalLayout->addWidget(label);
+label_2 = new QLabel(widget);
+label_2->setObjectName(QString::fromUtf8("label_2"));
+horizontalLayout->addWidget(label_2);
+label_3 = new QLabel(widget);
+label_3->setObjectName(QString::fromUtf8("label_3"));
+horizontalLayout->addWidget(label_3);
+MainWindow->setCentralWidget(centralWidget);
+menuBar = new QMenuBar(MainWindow);
+menuBar->setObjectName(QString::fromUtf8("menuBar"));
+menuBar->setGeometry(QRect(0, 0, 785, 25));
+MainWindow->setMenuBar(menuBar);
+mainToolBar = new QToolBar(MainWindow);
+mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
+statusBar = new QStatusBar(MainWindow);
+statusBar->setObjectName(QString::fromUtf8("statusBar"));
+MainWindow->setStatusBar(statusBar);
+retranslateUi(MainWindow);
+QMetaObject::connectSlotsByName(MainWindow);
+} // setupUi
+void retranslateUi(QMainWindow *MainWindow)
+{
+MainWindow->setWindowTitle(QApplication::translate("MainWindow",
+"MainWindow", 0, QApplication::UnicodeUTF8));
+quit->setText(QApplication::translate("MainWindow", "Quit", 0,
+QApplication::UnicodeUTF8));
+current->setText(QApplication::translate("MainWindow", "Current", 0,
+QApplication::UnicodeUTF8));
+define->setText(QApplication::translate("MainWindow", "Define", 0,
+QApplication::UnicodeUTF8));
+#ifndef QT_NO_ACCESSIBILITY
+select_h->setAccessibleName(QString());
+#endif // QT_NO_ACCESSIBILITY
+label->setText(QApplication::translate("MainWindow", "0:00", 0,
+QApplication::UnicodeUTF8));
+label_2->setText(QApplication::translate("MainWindow", "12:00", 0,
+QApplication::UnicodeUTF8));
+label_3->setText(QApplication::translate("MainWindow", "23:59", 0,
+QApplication::UnicodeUTF8));
+} // retranslateUi
+};
+namespace Ui {
+class MainWindow: public Ui_MainWindow {};
+} // namespace Ui
+QT_END_NAMESPACE
+#endif // UI_MAINWINDOW_H
+/****************************************************************************
+** Meta object code from reading C++ file 'mainwindow.h'
+**
+** Created: Mon Mar 25 20:44:08 2013
+** by: The Qt Meta Object Compiler version 63 (Qt 4.8.3)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+#include "../Assignment_2/mainwindow.h"
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'mainwindow.h' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.3. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+QT_BEGIN_MOC_NAMESPACE
+static const uint qt_meta_data_MainWindow[] = {
+// content:
+6, // revision
+0, // classname
+0, 0, // classinfo
+6, 14, // methods
+0, 0, // properties
+0, 0, // enums/sets
+0, 0, // constructors
+0, // flags
+0, // signalCount
+// slots: signature, parameters, type, tag, flags
+12, 11, 11, 11, 0x0a,
+19, 11, 11, 11, 0x0a,
+28, 11, 11, 11, 0x0a,
+37, 11, 11, 11, 0x0a,
+47, 11, 11, 11, 0x0a,
+69, 11, 11, 11, 0x0a,
+0 // eod
+};
+static const char qt_meta_stringdata_MainWindow[] = {
+"MainWindow\0\0quit()\0doWork()\0enable()\0"
+"disable()\0selectedDateChanged()\0"
+"reset_date()\0"
+};
+void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
+void **_a)
+{
+if (_c == QMetaObject::InvokeMetaMethod) {
+Q_ASSERT(staticMetaObject.cast(_o));
+MainWindow *_t = static_cast<MainWindow *>(_o);
+switch (_id) {
+case 0: _t->quit(); break;
+case 1: _t->doWork(); break;
+case 2: _t->enable(); break;
+case 3: _t->disable(); break;
+case 4: _t->selectedDateChanged(); break;
+case 5: _t->reset_date(); break;
+default: ;
+}
+}
+Q_UNUSED(_a);
+}
+const QMetaObjectExtraData MainWindow::staticMetaObjectExtraData = {
+0, qt_static_metacall
+};
+const QMetaObject MainWindow::staticMetaObject = {
+{ &QMainWindow::staticMetaObject, qt_meta_stringdata_MainWindow,
+qt_meta_data_MainWindow, &staticMetaObjectExtraData }
+};
+#ifdef Q_NO_DATA_RELOCATION
+const QMetaObject &MainWindow::getStaticMetaObject() { return staticMetaObject; }
+#endif //Q_NO_DATA_RELOCATION
+const QMetaObject *MainWindow::metaObject() const
+{
+return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject :
+&staticMetaObject;
+}
+void *MainWindow::qt_metacast(const char *_clname)
+{
+if (!_clname) return 0;
+if (!strcmp(_clname, qt_meta_stringdata_MainWindow))
+return static_cast<void*>(const_cast< MainWindow*>(this));
+return QMainWindow::qt_metacast(_clname);
+}
+int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+_id = QMainWindow::qt_metacall(_c, _id, _a);
+if (_id < 0)
+return _id;
+if (_c == QMetaObject::InvokeMetaMethod) {
+if (_id < 6)
+qt_static_metacall(this, _c, _id, _a);
+_id -= 6;
+}
+return _id;
+} QT_END_MOC_NAMESPACE
+/****************************************************************************
+** Meta object code from reading C++ file 'DigitalClock.h'
+**
+** Created: Thu Mar 21 14:24:47 2013
+** by: The Qt Meta Object Compiler version 63 (Qt 4.8.3)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+#include "../Assignment_2/DigitalClock.h"
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'DigitalClock.h' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.3. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+QT_BEGIN_MOC_NAMESPACE
+static const uint qt_meta_data_DigitalClock[] = {
+// content:
+6, // revision
+0, // classname
+0, 0, // classinfo
+1, 14, // methods
+0, 0, // properties
+0, 0, // enums/sets
+0, 0, // constructors
+0, // flags
+0, // signalCount
+// slots: signature, parameters, type, tag, flags
+14, 13, 13, 13, 0x08,
+0 // eod
+};
+static const char qt_meta_stringdata_DigitalClock[] = {
+"DigitalClock\0\0showTime()\0"
+};
+void DigitalClock::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
+void **_a)
+{
+if (_c == QMetaObject::InvokeMetaMethod) {
+Q_ASSERT(staticMetaObject.cast(_o));
+DigitalClock *_t = static_cast<DigitalClock *>(_o);
+switch (_id) {
+case 0: _t->showTime(); break;
+default: ;
+}
+}
+Q_UNUSED(_a);
+}
+const QMetaObjectExtraData DigitalClock::staticMetaObjectExtraData = {
+0, qt_static_metacall
+};
+const QMetaObject DigitalClock::staticMetaObject = {
+{ &QLCDNumber::staticMetaObject, qt_meta_stringdata_DigitalClock,
+qt_meta_data_DigitalClock, &staticMetaObjectExtraData }
+};
+#ifdef Q_NO_DATA_RELOCATION
+const QMetaObject &DigitalClock::getStaticMetaObject() { return
+staticMetaObject; }
+#endif //Q_NO_DATA_RELOCATION
+const QMetaObject *DigitalClock::metaObject() const
+{
+return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject :
+&staticMetaObject;
+}
+void *DigitalClock::qt_metacast(const char *_clname)
+{
+if (!_clname) return 0;
+if (!strcmp(_clname, qt_meta_stringdata_DigitalClock))
+return static_cast<void*>(const_cast< DigitalClock*>(this));
+return QLCDNumber::qt_metacast(_clname);
+}
+int DigitalClock::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+_id = QLCDNumber::qt_metacall(_c, _id, _a);
+if (_id < 0)
+return _id;
+if (_c == QMetaObject::InvokeMetaMethod) {
+if (_id < 1)
+qt_static_metacall(this, _c, _id, _a);
+_id -= 1;
+}
+return _id;
+} QT_END_MOC_NAMESPACE
+#############################################################################
+# Makefile for building: Assignment_2
+# Generated by qmake (2.01a) (Qt 4.8.3) on: Tue Mar 26 10:51:46 2013
+# Project: ../Assignment_2/Assignment_2.pro
+# Template: app
+# Command: /usr/bin/qmake-qt4 -spec /usr/share/qt4/mkspecs/linux-g++ -o
+Makefile ../Assignment_2/Assignment_2.pro
+#############################################################################
+####### Compiler, tools and options
+CC = gcc
+CXX = g++
+DEFINES = -DQT_WEBKIT -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED
+CFLAGS = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)
+CXXFLAGS = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)
+INCPATH = -I/usr/share/qt4/mkspecs/linux-g++ -I../Assignment_2
+-I/usr/include/qt4/QtCore -I/usr/include/qt4/QtGui -I/usr/include/qt4 -I. -I.
+-I../Assignment_2 -I.
+LINK = g++
+LFLAGS = -Wl,-O1
+LIBS = $(SUBLIBS) -L/usr/lib/x86_64-linux-gnu -lQtGui -lQtCore -lpthread
+AR = ar cqs
+RANLIB =
+QMAKE = /usr/bin/qmake-qt4
+TAR = tar -cf
+COMPRESS = gzip -9f
+COPY = cp -f
+SED = sed
+COPY_FILE = $(COPY)
+COPY_DIR = $(COPY) -r
+STRIP = strip
+INSTALL_FILE = install -m 644 -p
+INSTALL_DIR = $(COPY_DIR)
+INSTALL_PROGRAM = install -m 755 -p
+DEL_FILE = rm -f
+SYMLINK = ln -f -s
+DEL_DIR = rmdir
+MOVE = mv -f
+CHK_DIR_EXISTS= test -d
+MKDIR = mkdir -p
+####### Output directory
+OBJECTS_DIR = ./
+####### Files
+SOURCES = ../Assignment_2/main.cpp \
+../Assignment_2/mainwindow.cpp moc_mainwindow.cpp
+OBJECTS = main.o \
+mainwindow.o \
+moc_mainwindow.o
+DIST = /usr/share/qt4/mkspecs/common/unix.conf \
+/usr/share/qt4/mkspecs/common/linux.conf \
+/usr/share/qt4/mkspecs/common/gcc-base.conf \
+/usr/share/qt4/mkspecs/common/gcc-base-unix.conf \
+/usr/share/qt4/mkspecs/common/g++-base.conf \
+/usr/share/qt4/mkspecs/common/g++-unix.conf \
+/usr/share/qt4/mkspecs/qconfig.pri \
+/usr/share/qt4/mkspecs/modules/qt_webkit_version.pri \
+/usr/share/qt4/mkspecs/features/qt_functions.prf \
+/usr/share/qt4/mkspecs/features/qt_config.prf \
+/usr/share/qt4/mkspecs/features/exclusive_builds.prf \
+/usr/share/qt4/mkspecs/features/default_pre.prf \
+/usr/share/qt4/mkspecs/features/release.prf \
+/usr/share/qt4/mkspecs/features/default_post.prf \
+/usr/share/qt4/mkspecs/features/unix/gdb_dwarf_index.prf \
+/usr/share/qt4/mkspecs/features/warn_on.prf \
+/usr/share/qt4/mkspecs/features/qt.prf \
+/usr/share/qt4/mkspecs/features/unix/thread.prf \
+/usr/share/qt4/mkspecs/features/moc.prf \
+/usr/share/qt4/mkspecs/features/resources.prf \
+/usr/share/qt4/mkspecs/features/uic.prf \
+/usr/share/qt4/mkspecs/features/yacc.prf \
+/usr/share/qt4/mkspecs/features/lex.prf \
+/usr/share/qt4/mkspecs/features/include_source_dir.prf \
+../Assignment_2/Assignment_2.pro
+QMAKE_TARGET = Assignment_2
+DESTDIR =
+TARGET = Assignment_2
+first: all
+####### Implicit rules
+.SUFFIXES: .o .c .cpp .cc .cxx .C
+.cpp.o:
+$(CXX) -c $(CXXFLAGS) $(INCPATH) -o "$@" "$<"
+.cc.o:
+$(CXX) -c $(CXXFLAGS) $(INCPATH) -o "$@" "$<"
+.cxx.o:
+$(CXX) -c $(CXXFLAGS) $(INCPATH) -o "$@" "$<"
+.C.o:
+$(CXX) -c $(CXXFLAGS) $(INCPATH) -o "$@" "$<"
+.c.o:
+$(CC) -c $(CFLAGS) $(INCPATH) -o "$@" "$<"
+####### Build rules
+all: Makefile $(TARGET)
+$(TARGET): ui_mainwindow.h $(OBJECTS)
+$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
+Makefile: ../Assignment_2/Assignment_2.pro /usr/share/qt4/mkspecs/linux-g+
++/qmake.conf /usr/share/qt4/mkspecs/common/unix.conf \
+/usr/share/qt4/mkspecs/common/linux.conf \
+/usr/share/qt4/mkspecs/common/gcc-base.conf \
+/usr/share/qt4/mkspecs/common/gcc-base-unix.conf \
+/usr/share/qt4/mkspecs/common/g++-base.conf \
+/usr/share/qt4/mkspecs/common/g++-unix.conf \
+/usr/share/qt4/mkspecs/qconfig.pri \
+/usr/share/qt4/mkspecs/modules/qt_webkit_version.pri \
+/usr/share/qt4/mkspecs/features/qt_functions.prf \
+/usr/share/qt4/mkspecs/features/qt_config.prf \
+/usr/share/qt4/mkspecs/features/exclusive_builds.prf \
+/usr/share/qt4/mkspecs/features/default_pre.prf \
+/usr/share/qt4/mkspecs/features/release.prf \
+/usr/share/qt4/mkspecs/features/default_post.prf \
+/usr/share/qt4/mkspecs/features/unix/gdb_dwarf_index.prf \
+/usr/share/qt4/mkspecs/features/warn_on.prf \
+/usr/share/qt4/mkspecs/features/qt.prf \
+/usr/share/qt4/mkspecs/features/unix/thread.prf \
+/usr/share/qt4/mkspecs/features/moc.prf \
+/usr/share/qt4/mkspecs/features/resources.prf \
+/usr/share/qt4/mkspecs/features/uic.prf \
+/usr/share/qt4/mkspecs/features/yacc.prf \
+/usr/share/qt4/mkspecs/features/lex.prf \
+/usr/share/qt4/mkspecs/features/include_source_dir.prf \
+/usr/lib/x86_64-linux-gnu/libQtGui.prl \
+/usr/lib/x86_64-linux-gnu/libQtCore.prl
+$(QMAKE) -spec /usr/share/qt4/mkspecs/linux-g++ -o Makefile
+../Assignment_2/Assignment_2.pro
+/usr/share/qt4/mkspecs/common/unix.conf:
+/usr/share/qt4/mkspecs/common/linux.conf:
+/usr/share/qt4/mkspecs/common/gcc-base.conf:
+/usr/share/qt4/mkspecs/common/gcc-base-unix.conf:
+/usr/share/qt4/mkspecs/common/g++-base.conf:
+/usr/share/qt4/mkspecs/common/g++-unix.conf:
+/usr/share/qt4/mkspecs/qconfig.pri:
+/usr/share/qt4/mkspecs/modules/qt_webkit_version.pri:
+/usr/share/qt4/mkspecs/features/qt_functions.prf:
+/usr/share/qt4/mkspecs/features/qt_config.prf:
+/usr/share/qt4/mkspecs/features/exclusive_builds.prf:
+/usr/share/qt4/mkspecs/features/default_pre.prf:
+/usr/share/qt4/mkspecs/features/release.prf:
+/usr/share/qt4/mkspecs/features/default_post.prf:
+/usr/share/qt4/mkspecs/features/unix/gdb_dwarf_index.prf:
+/usr/share/qt4/mkspecs/features/warn_on.prf:
+/usr/share/qt4/mkspecs/features/qt.prf:
+/usr/share/qt4/mkspecs/features/unix/thread.prf:
+/usr/share/qt4/mkspecs/features/moc.prf:
+/usr/share/qt4/mkspecs/features/resources.prf:
+/usr/share/qt4/mkspecs/features/uic.prf:
+/usr/share/qt4/mkspecs/features/yacc.prf:
+/usr/share/qt4/mkspecs/features/lex.prf:
+/usr/share/qt4/mkspecs/features/include_source_dir.prf:
+/usr/lib/x86_64-linux-gnu/libQtGui.prl:
+/usr/lib/x86_64-linux-gnu/libQtCore.prl:
+qmake: FORCE
+@$(QMAKE) -spec /usr/share/qt4/mkspecs/linux-g++ -o Makefile
+../Assignment_2/Assignment_2.pro
+dist:
+@$(CHK_DIR_EXISTS) .tmp/Assignment_21.0.0 || $(MKDIR) .tmp/Assignment_21.0.0
+$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/Assignment_21.0.0/ && $
+(COPY_FILE) --parents ../Assignment_2/mainwindow.h .tmp/Assignment_21.0.0/ && $
+(COPY_FILE) --parents ../Assignment_2/main.cpp ../Assignment_2/mainwindow.cpp
+.tmp/Assignment_21.0.0/ && $(COPY_FILE) --parents ../Assignment_2/mainwindow.ui
+.tmp/Assignment_21.0.0/ && (cd `dirname .tmp/Assignment_21.0.0` && $(TAR)
+Assignment_21.0.0.tar Assignment_21.0.0 && $(COMPRESS) Assignment_21.0.0.tar) && $
+(MOVE) `dirname .tmp/Assignment_21.0.0`/Assignment_21.0.0.tar.gz . && $(DEL_FILE)
+-r .tmp/Assignment_21.0.0
+clean:compiler_clean
+-$(DEL_FILE) $(OBJECTS)
+-$(DEL_FILE) *~ core *.core
+####### Sub-libraries
+distclean: clean
+-$(DEL_FILE) $(TARGET)
+-$(DEL_FILE) Makefile
+check: first
+mocclean: compiler_moc_header_clean compiler_moc_source_clean
+mocables: compiler_moc_header_make_all compiler_moc_source_make_all
+compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_clean:
+-$(DEL_FILE) moc_mainwindow.cpp
+moc_mainwindow.cpp: ../Assignment_2/mainwindow.h
+/usr/bin/moc-qt4 $(DEFINES) $(INCPATH) ../Assignment_2/mainwindow.h -o
+moc_mainwindow.cpp
+compiler_rcc_make_all:
+compiler_rcc_clean:
+compiler_image_collection_make_all: qmake_image_collection.cpp
+compiler_image_collection_clean:
+-$(DEL_FILE) qmake_image_collection.cpp
+compiler_moc_source_make_all:
+compiler_moc_source_clean:
+compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_clean:
+-$(DEL_FILE) ui_mainwindow.h
+ui_mainwindow.h: ../Assignment_2/mainwindow.ui
+/usr/bin/uic-qt4 ../Assignment_2/mainwindow.ui -o ui_mainwindow.h
+compiler_yacc_decl_make_all:
+compiler_yacc_decl_clean:
+compiler_yacc_impl_make_all:
+compiler_yacc_impl_clean:
+compiler_lex_make_all:
+compiler_lex_clean:
+compiler_clean: compiler_moc_header_clean compiler_uic_clean
+####### Compile
+main.o: ../Assignment_2/main.cpp ../Assignment_2/mainwindow.h
+$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Assignment_2/main.cpp
+mainwindow.o: ../Assignment_2/mainwindow.cpp ../Assignment_2/mainwindow.h \
+ui_mainwindow.h
+$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o
+../Assignment_2/mainwindow.cpp
+moc_mainwindow.o: moc_mainwindow.cpp
+$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+####### Install
+install: FORCE
+uninstall: FORCE
+FORCE:
