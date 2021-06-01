@@ -9,6 +9,7 @@ Assignment2
 ********************************************************************************/
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
+
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
@@ -155,7 +156,7 @@ QT_END_NAMESPACE
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
-#include "../Assignment_2/mainwindow.h"
+#include "mainwindow.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
@@ -249,7 +250,7 @@ return _id;
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
-#include "../Assignment_2/DigitalClock.h"
+#include "DigitalClock.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'DigitalClock.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
