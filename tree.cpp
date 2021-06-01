@@ -268,8 +268,7 @@ mov = 0;break;
 case 's':
 mov = 0;break;
 }
-} void keyboard(unsigned char key, int x, int y) // increment or decrement movement
-along z and x axes
+} void keyboard(unsigned char key, int x, int y) // increment or decrement movement along z and x axes
 {
 switch (key) {
 case 27:
