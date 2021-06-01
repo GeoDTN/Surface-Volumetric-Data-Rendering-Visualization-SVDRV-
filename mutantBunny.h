@@ -1,8 +1,9 @@
+/************************************
 * mutantBunny.h
 * Created on: 27/Feb/2013
 * Author: Tadewos Somano 
 *University of Brescia, Brescia ,Italy
-*/
+************************************/
 #ifndef MUTANTBUNNY_H_
 #define MUTANTBUNNY_H_
 #include "Animal.h"
