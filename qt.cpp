@@ -29,7 +29,8 @@ Assignment2
 #include <QtGui/QWidget>
 QT_BEGIN_NAMESPACE
 class Ui_MainWindow
-{ public:
+{ 
+public:
 QWidget *centralWidget;
 QCalendarWidget *calendar;
 QPushButton *quit;
@@ -47,6 +48,7 @@ QLabel *label_3;
 QMenuBar *menuBar;
 QToolBar *mainToolBar;
 QStatusBar *statusBar;
+
 void setupUi(QMainWindow *MainWindow)
 {
 if (MainWindow->objectName().isEmpty())
@@ -155,7 +157,7 @@ QT_END_NAMESPACE
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
-#include "../Assignment_2/mainwindow.h"
+#include "mainwindow.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
@@ -249,7 +251,8 @@ return _id;
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
-#include "../Assignment_2/DigitalClock.h"
+#include "DigitalClock.h"
+
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'DigitalClock.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
